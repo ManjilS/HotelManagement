@@ -42,6 +42,7 @@ public class user extends JFrame {
 	private JTable table;
 	private JTextField textField_6;
 	private JTextField textField_7;
+	private JTextField textField_8;
 
 	/**
 	 * Launch the application.
@@ -318,7 +319,7 @@ public class user extends JFrame {
 		
 		JScrollPane scrollPane = new JScrollPane();
 		
-		scrollPane.setBounds(374, 27, 798, 248);
+		scrollPane.setBounds(372, 75, 798, 248);
 		contentPane.add(scrollPane);
 		
 		
@@ -448,5 +449,98 @@ public class user extends JFrame {
 		textField_7.setColumns(10);
 		textField_7.setBounds(126, 328, 195, 28);
 		contentPane.add(textField_7);
+		
+		textField_8 = new JTextField();
+		textField_8.setBounds(906, 32, 163, 19);
+		contentPane.add(textField_8);
+		textField_8.setColumns(10);
+		
+		JButton btnNewButton_7 = new JButton("Search");
+		btnNewButton_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String search = textField_8.getText();
+				
+				try {
+		           connection con = new connection();
+		            String sql = "SELECT * FROM user WHERE name = '"+search+"'";
+		            PreparedStatement s = connection.con.prepareStatement(sql);
+		            ResultSet rs = s.executeQuery(sql);
+				    ResultSetMetaData rsmd = rs.getMetaData();
+				    DefaultTableModel model = (DefaultTableModel) table.getModel();
+				    
+				    int cols = rsmd.getColumnCount();
+				    String[] colname = new String[cols];
+				    for (int i = 0; i < cols; i++) {
+				        colname[i] = rsmd.getColumnName(i + 1);
+				    }
+				    model.setColumnIdentifiers(colname);  
+				    model.setRowCount(0);
+				    while (rs.next()) {
+				        Object[] rowData = {
+				            rs.getString("name"),
+				            rs.getInt("user_id"),  
+				            rs.getInt("age"),
+				            rs.getString("address"),  
+				            rs.getString("status"),
+				            rs.getInt("citizenship_no"),
+				            rs.getString("room_category"),
+				            rs.getString("check_in_date"),
+				            rs.getString("check_out_date")
+				        };
+				        model.addRow(rowData);
+				    }
+		        } catch (SQLException en) {
+		            en.printStackTrace();
+		        	}
+			}
+		});
+		btnNewButton_7.setBounds(1079, 31, 85, 21);
+		contentPane.add(btnNewButton_7);
+		
+		JLabel lblNewLabel_7 = new JLabel("Search for");
+		lblNewLabel_7.setBounds(794, 27, 102, 21);
+		contentPane.add(lblNewLabel_7);
+		
+		JButton btnNewButton_8 = new JButton("Undo");
+		btnNewButton_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					connection con = new connection();
+					
+					String sql = "SELECT * FROM user";
+				    Statement s = connection.con.createStatement();
+				    ResultSet rs = s.executeQuery(sql);
+				    ResultSetMetaData rsmd = rs.getMetaData();
+				    DefaultTableModel model = (DefaultTableModel) table.getModel();
+				    
+				    int cols = rsmd.getColumnCount();
+				    String[] colname = new String[cols];
+				    for (int i = 0; i < cols; i++) {
+				        colname[i] = rsmd.getColumnName(i + 1);
+				    }
+				    model.setColumnIdentifiers(colname);  
+				    model.setRowCount(0);
+				    while (rs.next()) {
+				        Object[] rowData = {
+				            rs.getString("name"),
+				            rs.getInt("user_id"),  
+				            rs.getInt("age"),
+				            rs.getString("address"),  
+				            rs.getString("status"),
+				            rs.getInt("citizenship_no"),
+				            rs.getString("room_category"),
+				            rs.getString("check_in_date"),
+				            rs.getString("check_out_date")
+				        };
+				        model.addRow(rowData);
+				    }
+				    
+					}catch(SQLException ent) {
+						ent.printStackTrace();
+					}
+			}
+		});
+		btnNewButton_8.setBounds(892, 379, 85, 21);
+		contentPane.add(btnNewButton_8);
 	}
 }
