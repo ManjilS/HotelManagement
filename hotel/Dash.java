@@ -8,8 +8,10 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
-public class MainDash extends JFrame {
+public class Dash extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -21,7 +23,7 @@ public class MainDash extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MainDash frame = new MainDash();
+					Dash frame = new Dash();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -33,9 +35,9 @@ public class MainDash extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MainDash() {
+	public Dash() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 602, 197);
+		setBounds(100, 100, 651, 194);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -47,10 +49,10 @@ public class MainDash extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				admin a = new admin();
 				a.show();
-				MainDash.this.setVisible(false);
+				Dash.this.setVisible(false);
 			}
 		});
-		btnNewButton.setBounds(27, 40, 152, 49);
+		btnNewButton.setBounds(30, 27, 152, 41);
 		contentPane.add(btnNewButton);
 		
 		JButton btnReceptionist = new JButton("Receptionist");
@@ -58,22 +60,26 @@ public class MainDash extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Receptionist r = new Receptionist();
 				r.show();
-				MainDash.this.setVisible(false);
+				Dash.this.setVisible(false);
 			}
 		});
-		btnReceptionist.setBounds(218, 40, 152, 49);
+		btnReceptionist.setBounds(256, 27, 152, 41);
 		contentPane.add(btnReceptionist);
 		
-		JButton btnHouseKeeper = new JButton("House Keeper");
-		btnHouseKeeper.addActionListener(new ActionListener() {
+		JButton btnHousekeeping = new JButton("Housekeeping");
+		btnHousekeeping.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				housekeeping h = new housekeeping();
 				h.show();
-				MainDash.this.setVisible(false);
+				Dash.this.setVisible(false);
 			}
 		});
-		btnHouseKeeper.setBounds(426, 40, 152, 49);
-		contentPane.add(btnHouseKeeper);
+		btnHousekeeping.setBounds(475, 27, 152, 41);
+		contentPane.add(btnHousekeeping);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\bhade\\Downloads\\dash.jpg"));
+		lblNewLabel.setBounds(0, 0, 637, 147);
+		contentPane.add(lblNewLabel);
 	}
-
 }

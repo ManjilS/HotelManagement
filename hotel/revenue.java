@@ -7,16 +7,20 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import java.awt.Color;
 
 public class revenue extends JFrame {
 
@@ -46,6 +50,7 @@ public class revenue extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 495, 372);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(64, 0, 64));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -58,7 +63,7 @@ public class revenue extends JFrame {
 		
 		JTextArea textArea = new JTextArea();
 		textArea.setFont(new Font("Times New Roman", Font.BOLD, 22));
-		textArea.setBounds(31, 92, 390, 233);
+		textArea.setBounds(58, 61, 390, 233);
 		contentPane.add(textArea);
 		
 		JButton btnNewButton = new JButton("OK");
@@ -111,7 +116,23 @@ public class revenue extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("Revenue");
-		lblNewLabel.setBounds(42, 24, 94, 26);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		lblNewLabel.setBounds(58, 23, 94, 26);
 		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Home h = new Home();
+				h.show();
+				revenue.this.setVisible(false);
+			}
+		});
+		lblNewLabel_1.setBackground(new Color(255, 255, 255));
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\bhade\\Downloads\\undo.png"));
+		lblNewLabel_1.setBounds(0, 10, 48, 47);
+		contentPane.add(lblNewLabel_1);
 	}
 }

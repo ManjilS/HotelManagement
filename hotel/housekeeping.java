@@ -1,6 +1,7 @@
 package hotel;
 
 import java.awt.EventQueue;
+import java.awt.Image;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -8,12 +9,14 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
+import java.awt.Font;
 
 public class housekeeping extends JFrame {
 
@@ -43,7 +46,7 @@ public class housekeeping extends JFrame {
 	 */
 	public housekeeping() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 218);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -51,15 +54,18 @@ public class housekeeping extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("User ID");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblNewLabel.setBounds(10, 10, 95, 28);
 		contentPane.add(lblNewLabel);
 		
 		textField = new JTextField();
+		textField.setFont(new Font("Tahoma", Font.BOLD, 12));
 		textField.setBounds(110, 10, 178, 28);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblPassword = new JLabel("Password");
+		lblPassword.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblPassword.setBounds(10, 57, 95, 28);
 		contentPane.add(lblPassword);
 		
@@ -92,7 +98,13 @@ public class housekeeping extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		passwordField = new JPasswordField();
+		passwordField.setFont(new Font("Tahoma", Font.BOLD, 12));
 		passwordField.setBounds(110, 53, 178, 28);
 		contentPane.add(passwordField);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\bhade\\Downloads\\a.jpg"));
+		lblNewLabel_1.setBounds(0, 0, 446, 181);
+		contentPane.add(lblNewLabel_1);
 	}
 }

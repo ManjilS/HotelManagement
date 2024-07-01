@@ -16,6 +16,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.sql.*;
 import javax.swing.JPasswordField;
+import javax.swing.ImageIcon;
+import java.awt.Image;
 
 public class admin extends JFrame {
 
@@ -56,12 +58,12 @@ public class admin extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("User_Name");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblNewLabel.setBounds(33, 37, 86, 37);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Password");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblNewLabel_1.setBounds(33, 97, 68, 29);
 		contentPane.add(lblNewLabel_1);
 		
@@ -71,6 +73,7 @@ public class admin extends JFrame {
 		textField.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Login");
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 10));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -93,10 +96,11 @@ public class admin extends JFrame {
 				}
 			}
 		});
-		btnNewButton.setBounds(117, 152, 95, 29);
+		btnNewButton.setBounds(120, 157, 95, 29);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Clear");
+		
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText("");
@@ -110,5 +114,11 @@ public class admin extends JFrame {
 		passwordField = new JPasswordField();
 		passwordField.setBounds(133, 93, 143, 29);
 		contentPane.add(passwordField);
+		
+		JLabel labelimg = new JLabel("");
+		labelimg.setBounds(10, 10, 349, 228);
+		Image img = new ImageIcon(this.getClass().getResource("/a.jpg")).getImage();
+		labelimg.setIcon(new ImageIcon(img));
+		contentPane.add(labelimg);
 	}
 }

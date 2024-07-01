@@ -9,11 +9,13 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 public class Receptionist extends JFrame {
 
@@ -51,10 +53,12 @@ public class Receptionist extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("User name");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblNewLabel.setBounds(27, 26, 100, 29);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblPassword = new JLabel("Password");
+		lblPassword.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblPassword.setBounds(27, 65, 100, 29);
 		contentPane.add(lblPassword);
 		
@@ -94,5 +98,10 @@ public class Receptionist extends JFrame {
 		});
 		btnNewButton.setBounds(142, 120, 100, 29);
 		contentPane.add(btnNewButton);
+		
+		JLabel lblNewLabel1 = new JLabel("New label");
+		lblNewLabel1.setIcon(new ImageIcon("C:\\Users\\bhade\\Downloads\\a.jpg"));
+		lblNewLabel1.setBounds(0, 0, 573, 252);
+		contentPane.add(lblNewLabel1);
 	}
 }

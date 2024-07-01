@@ -12,12 +12,17 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JTable;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import java.awt.Color;
+import java.awt.Font;
 
 public class viewuser extends JFrame {
 
@@ -47,33 +52,37 @@ public class viewuser extends JFrame {
 	 */
 	public viewuser() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 803, 347);
+		setBounds(100, 100, 803, 363);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(0, 0, 160));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 49, 757, 230);
+		scrollPane.setBounds(20, 71, 757, 230);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
 		scrollPane.setViewportView(table);
 		
-		JButton btnNewButton = new JButton("Back");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		JLabel lblNewLabel_8 = new JLabel("");
+		lblNewLabel_8.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
 				Home h = new Home();
 				h.show();
 				viewuser.this.setVisible(false);
 			}
 		});
-		btnNewButton.setBounds(682, 289, 85, 21);
-		contentPane.add(btnNewButton);
+		lblNewLabel_8.setIcon(new ImageIcon("C:\\Users\\bhade\\Downloads\\undo.png"));
+		lblNewLabel_8.setBounds(10, 10, 58, 51);
+		contentPane.add(lblNewLabel_8);
 		
+				
 		txtSearch = new JTextField();
-		txtSearch.setBounds(525, 20, 154, 19);
+		txtSearch.setBounds(519, 42, 154, 19);
 		contentPane.add(txtSearch);
 		txtSearch.setColumns(10);
 		
@@ -118,16 +127,20 @@ public class viewuser extends JFrame {
 				
 			}
 		});
-		btnNewButton_1.setBounds(682, 19, 85, 21);
+		btnNewButton_1.setBounds(683, 40, 85, 21);
 		contentPane.add(btnNewButton_1);
 		
 		JLabel lblNewLabel = new JLabel("Search for");
-		lblNewLabel.setBounds(411, 23, 104, 13);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		lblNewLabel.setBackground(new Color(255, 255, 255));
+		lblNewLabel.setBounds(393, 48, 104, 13);
 		contentPane.add(lblNewLabel);
 		
-		JButton btnNewButton_2 = new JButton("Undo");
-		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
 				try {
 					connection con = new connection();
 					
@@ -164,8 +177,9 @@ public class viewuser extends JFrame {
 					}
 			}
 		});
-		btnNewButton_2.setBounds(587, 289, 85, 21);
-		contentPane.add(btnNewButton_2);
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\bhade\\Downloads\\refesh.png"));
+		lblNewLabel_1.setBounds(285, 10, 48, 51);
+		contentPane.add(lblNewLabel_1);
 		
 		try {
 			connection con = new connection();

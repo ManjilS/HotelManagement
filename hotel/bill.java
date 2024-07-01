@@ -27,6 +27,7 @@ import javax.swing.JScrollPane;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JRadioButton;
+import java.awt.Color;
 
 public class bill extends JFrame {
 
@@ -64,36 +65,52 @@ public class bill extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1029, 565);
 		contentPane = new JPanel();
+		contentPane.setForeground(new Color(255, 255, 255));
+		contentPane.setBackground(new Color(128, 0, 64));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Bill No");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setBounds(10, 10, 123, 29);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblRoomNo = new JLabel("Room No");
+		lblRoomNo.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblRoomNo.setForeground(new Color(255, 255, 255));
 		lblRoomNo.setBounds(10, 43, 123, 29);
 		contentPane.add(lblRoomNo);
 		
 		JLabel lblUserId = new JLabel("User Id");
+		lblUserId.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblUserId.setForeground(new Color(255, 255, 255));
 		lblUserId.setBounds(10, 79, 123, 29);
 		contentPane.add(lblUserId);
 		
 		JLabel lblStatus = new JLabel("Status");
+		lblStatus.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblStatus.setForeground(new Color(255, 255, 255));
 		lblStatus.setBounds(10, 118, 123, 29);
 		contentPane.add(lblStatus);
 		
 		JLabel lblRoomCategory = new JLabel("Room Category");
+		lblRoomCategory.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblRoomCategory.setForeground(new Color(255, 255, 255));
 		lblRoomCategory.setBounds(10, 157, 123, 29);
 		contentPane.add(lblRoomCategory);
 		
 		JLabel lblAmount = new JLabel("Amount");
+		lblAmount.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblAmount.setForeground(new Color(255, 255, 255));
 		lblAmount.setBounds(10, 196, 123, 29);
 		contentPane.add(lblAmount);
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.setFont(new Font("Tahoma", Font.BOLD, 12));
+		comboBox.setForeground(new Color(255, 255, 255));
 		connection con = new connection();
         Statement s = connection.con.createStatement();
         String Query = "SELECT category FROM room";
@@ -105,7 +122,7 @@ public class bill extends JFrame {
                 comboBox.addItem(type);
             }
         }
-		comboBox.setBounds(99, 157, 163, 21);
+		comboBox.setBounds(119, 161, 163, 21);
 		contentPane.add(comboBox);
 		
 		JTextArea textArea = new JTextArea();
@@ -181,26 +198,36 @@ public class bill extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		textField = new JTextField();
+		textField.setFont(new Font("Tahoma", Font.BOLD, 12));
+		textField.setForeground(new Color(255, 255, 255));
 		textField.setBounds(99, 15, 163, 19);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
+		textField_1.setFont(new Font("Tahoma", Font.BOLD, 12));
+		textField_1.setForeground(new Color(255, 255, 255));
 		textField_1.setColumns(10);
 		textField_1.setBounds(99, 48, 163, 19);
 		contentPane.add(textField_1);
 		
 		textField_2 = new JTextField();
+		textField_2.setFont(new Font("Tahoma", Font.BOLD, 12));
+		textField_2.setForeground(new Color(255, 255, 255));
 		textField_2.setColumns(10);
 		textField_2.setBounds(99, 84, 163, 19);
 		contentPane.add(textField_2);
 		
 		textField_3 = new JTextField();
+		textField_3.setFont(new Font("Tahoma", Font.BOLD, 12));
+		textField_3.setForeground(new Color(255, 255, 255));
 		textField_3.setColumns(10);
 		textField_3.setBounds(99, 123, 163, 19);
 		contentPane.add(textField_3);
 		
 		textField_4 = new JTextField();
+		textField_4.setFont(new Font("Tahoma", Font.BOLD, 12));
+		textField_4.setForeground(new Color(255, 255, 255));
 		textField_4.setColumns(10);
 		textField_4.setBounds(99, 201, 163, 19);
 		contentPane.add(textField_4);
@@ -209,7 +236,7 @@ public class bill extends JFrame {
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-				user u = new user();
+				ReceptionDash u = new ReceptionDash();
 				u.show();
 				bill.this.setVisible(false);
 				}catch(Exception en) {

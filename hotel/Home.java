@@ -3,10 +3,14 @@ package hotel;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
 
 public class Home extends JFrame {
@@ -42,6 +46,8 @@ public class Home extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		
+		
 		JButton btnUser = new JButton("View User");
 		btnUser.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -54,7 +60,7 @@ public class Home extends JFrame {
 				}
 			}
 		});
-		btnUser.setBounds(213, 42, 120, 46);
+		btnUser.setBounds(221, 71, 120, 46);
 		contentPane.add(btnUser);
 		
 		JButton btnRoom = new JButton(" Room Detials");
@@ -65,7 +71,7 @@ public class Home extends JFrame {
 				Home.this.setVisible(false);
 			}
 		});
-		btnRoom.setBounds(415, 42, 120, 46);
+		btnRoom.setBounds(423, 71, 120, 46);
 		contentPane.add(btnRoom);
 		
 		JButton btnStaff = new JButton("Staff Details");
@@ -76,19 +82,21 @@ public class Home extends JFrame {
 				Home.this.setVisible(false);
 			}
 		});
-		btnStaff.setBounds(33, 42, 120, 46);
+		btnStaff.setBounds(41, 71, 120, 46);
 		contentPane.add(btnStaff);
 		
-		JButton btnNewButton = new JButton("Back");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				MainDash d = new MainDash();
-				d.show();
+		JLabel lblNewLabel_8 = new JLabel("");
+		lblNewLabel_8.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Dash h = new Dash();
+				h.show();
 				Home.this.setVisible(false);
 			}
 		});
-		btnNewButton.setBounds(452, 169, 85, 21);
-		contentPane.add(btnNewButton);
+		lblNewLabel_8.setIcon(new ImageIcon("C:\\Users\\bhade\\Downloads\\undo.png"));
+		lblNewLabel_8.setBounds(10, 10, 58, 51);
+		contentPane.add(lblNewLabel_8);
 		
 		JButton btnNewButton_1 = new JButton("View Report");
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -98,7 +106,23 @@ public class Home extends JFrame {
 				Home.this.setVisible(false);
 			}
 		});
-		btnNewButton_1.setBounds(213, 114, 120, 40);
+		btnNewButton_1.setBounds(130, 143, 120, 40);
 		contentPane.add(btnNewButton_1);
+		
+		JButton btnNewButton_1_1 = new JButton("View Revenue");
+		btnNewButton_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				revenue r = new revenue();
+				r.show();
+				Home.this.setVisible(false);
+			}
+		});
+		btnNewButton_1_1.setBounds(331, 143, 120, 40);
+		contentPane.add(btnNewButton_1_1);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\bhade\\Downloads\\dash.jpg"));
+		lblNewLabel.setBounds(0, 0, 573, 252);
+		contentPane.add(lblNewLabel);
 	}
 }

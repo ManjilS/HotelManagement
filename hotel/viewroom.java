@@ -10,6 +10,7 @@ import javax.swing.JTable;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import java.awt.event.ActionListener;
@@ -21,6 +22,8 @@ import java.sql.Statement;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Font;
+import java.awt.Color;
 
 public class viewroom extends JFrame {
 
@@ -59,7 +62,7 @@ public class viewroom extends JFrame {
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(425, 28, 567, 277);
+		scrollPane.setBounds(409, 28, 567, 277);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -87,21 +90,25 @@ public class viewroom extends JFrame {
 		scrollPane.setViewportView(table);
 		
 		JLabel lblNewLabel = new JLabel("Room No");
-		lblNewLabel.setBounds(20, 28, 119, 29);
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblNewLabel.setBounds(20, 58, 119, 29);
 		contentPane.add(lblNewLabel);
 		
 		textField = new JTextField();
-		textField.setBounds(149, 28, 189, 24);
+		textField.setBounds(149, 58, 189, 24);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblCleaning = new JLabel("Cleaning");
-		lblCleaning.setBounds(20, 67, 119, 29);
+		lblCleaning.setForeground(new Color(255, 255, 255));
+		lblCleaning.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblCleaning.setBounds(20, 97, 119, 29);
 		contentPane.add(lblCleaning);
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
-		textField_1.setBounds(149, 62, 189, 24);
+		textField_1.setBounds(149, 92, 189, 24);
 		contentPane.add(textField_1);
 		
 		JButton btnNewButton = new JButton("OK");
@@ -147,7 +154,7 @@ public class viewroom extends JFrame {
 				}
 			}
 		});
-		btnNewButton.setBounds(67, 125, 85, 38);
+		btnNewButton.setBounds(67, 155, 85, 38);
 		contentPane.add(btnNewButton);
 		
 		JButton btnView = new JButton("View");
@@ -185,20 +192,28 @@ public class viewroom extends JFrame {
 					}
 			}
 		});
-		btnView.setBounds(278, 125, 85, 38);
+		btnView.setBounds(278, 155, 85, 38);
 		contentPane.add(btnView);
 		
-		JButton btnNewButton_1 = new JButton("Back");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		JLabel lblNewLabel_8 = new JLabel("");
+		lblNewLabel_8.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
 				housekeepDash d = new housekeepDash();
 				d.show();
-				viewroom.this.setVisible(false);
+				dispose();
 			}
-
-			
 		});
-		btnNewButton_1.setBounds(290, 257, 85, 21);
-		contentPane.add(btnNewButton_1);
+		lblNewLabel_8.setIcon(new ImageIcon("C:\\Users\\bhade\\Downloads\\undo.png"));
+		lblNewLabel_8.setBounds(10, 10, 58, 51);
+		contentPane.add(lblNewLabel_8);
+		
+		
+		JLabel lb = new JLabel("New label");
+		lb.setIcon(new ImageIcon("C:\\Users\\bhade\\Downloads\\room.jpg"));
+		lb.setBounds(0, 0, 1023, 341);
+		contentPane.add(lb);
+		
+		
 	}
 }

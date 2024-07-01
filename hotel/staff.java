@@ -8,6 +8,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JTable;
@@ -21,6 +22,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Color;
 
 public class staff extends JFrame {
 
@@ -33,6 +35,7 @@ public class staff extends JFrame {
 	private JTextField textField_4;
 	private JTable table;
 	private JTextField textField_5;
+	private JTextField textField_6;
 
 	/**
 	 * Launch the application.
@@ -55,31 +58,37 @@ public class staff extends JFrame {
 	 */
 	public staff() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 827, 312);
+		setBounds(100, 100, 827, 349);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(64, 128, 128));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Staff Name");
-		lblNewLabel.setBounds(10, 23, 100, 24);
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		lblNewLabel.setBounds(10, 61, 100, 24);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblStaffId = new JLabel("Staff Id");
-		lblStaffId.setBounds(10, 60, 100, 24);
+		lblStaffId.setForeground(new Color(255, 255, 255));
+		lblStaffId.setBounds(10, 98, 100, 24);
 		contentPane.add(lblStaffId);
 		
 		JLabel lblStatus = new JLabel("Status");
-		lblStatus.setBounds(10, 96, 100, 24);
+		lblStatus.setForeground(new Color(255, 255, 255));
+		lblStatus.setBounds(10, 134, 100, 24);
 		contentPane.add(lblStatus);
 		
 		JLabel lblJoinDate = new JLabel("Join Date");
-		lblJoinDate.setBounds(10, 132, 100, 24);
+		lblJoinDate.setForeground(new Color(255, 255, 255));
+		lblJoinDate.setBounds(10, 170, 100, 24);
 		contentPane.add(lblJoinDate);
 		
 		JLabel lblAddress = new JLabel("Address");
-		lblAddress.setBounds(10, 166, 100, 24);
+		lblAddress.setForeground(new Color(255, 255, 255));
+		lblAddress.setBounds(10, 204, 100, 24);
 		contentPane.add(lblAddress);
 		
 		JButton btnNewButton = new JButton("Add");
@@ -115,7 +124,7 @@ public class staff extends JFrame {
 				
 			}
 		});
-		btnNewButton.setBounds(10, 227, 85, 21);
+		btnNewButton.setBounds(10, 265, 85, 21);
 		contentPane.add(btnNewButton);
 		
 		JButton btnEdit = new JButton("Update");
@@ -179,7 +188,7 @@ public class staff extends JFrame {
 				
 			}
 		});
-		btnEdit.setBounds(141, 227, 85, 21);
+		btnEdit.setBounds(163, 265, 85, 21);
 		contentPane.add(btnEdit);
 		
 		JButton btnDelete = new JButton("Delete");
@@ -218,7 +227,7 @@ public class staff extends JFrame {
 				}
 			}
 		});
-		btnDelete.setBounds(280, 227, 85, 21);
+		btnDelete.setBounds(319, 265, 85, 21);
 		contentPane.add(btnDelete);
 		
 		JButton btnView = new JButton("View");
@@ -259,47 +268,54 @@ public class staff extends JFrame {
 				}
 			}
 		});
-		btnView.setBounds(400, 227, 85, 21);
+		btnView.setBounds(481, 265, 85, 21);
 		contentPane.add(btnView);
 		
-		JButton btnBack = new JButton("Back");
-		btnBack.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		JLabel btnBack = new JLabel("Back");
+		btnBack.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
 				Home h = new Home();
 				h.show();
 				staff.this.setVisible(false);
 			}
 		});
-		btnBack.setBounds(525, 227, 85, 21);
+		btnBack.setIcon(new ImageIcon("C:\\Users\\bhade\\Downloads\\undo.png"));
+		btnBack.setBounds(0, 0, 51, 51);
 		contentPane.add(btnBack);
 		
 		textField = new JTextField();
-		textField.setBounds(74, 26, 174, 19);
+		textField.setForeground(new Color(255, 255, 255));
+		textField.setBounds(74, 64, 174, 19);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
+		textField_1.setForeground(new Color(255, 255, 255));
 		textField_1.setColumns(10);
-		textField_1.setBounds(74, 63, 174, 19);
+		textField_1.setBounds(74, 101, 174, 19);
 		contentPane.add(textField_1);
 		
 		textField_2 = new JTextField();
+		textField_2.setForeground(new Color(255, 255, 255));
 		textField_2.setColumns(10);
-		textField_2.setBounds(74, 99, 174, 19);
+		textField_2.setBounds(74, 137, 174, 19);
 		contentPane.add(textField_2);
 		
 		textField_3 = new JTextField();
+		textField_3.setForeground(new Color(255, 255, 255));
 		textField_3.setColumns(10);
-		textField_3.setBounds(74, 135, 174, 19);
+		textField_3.setBounds(74, 173, 174, 19);
 		contentPane.add(textField_3);
 		
 		textField_4 = new JTextField();
+		textField_4.setForeground(new Color(255, 255, 255));
 		textField_4.setColumns(10);
-		textField_4.setBounds(74, 169, 174, 19);
+		textField_4.setBounds(74, 207, 174, 19);
 		contentPane.add(textField_4);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(280, 28, 521, 189);
+		scrollPane.setBounds(280, 66, 521, 189);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -341,19 +357,35 @@ public class staff extends JFrame {
 				textField_2.setText("");
 				textField_3.setText("");
 				textField_4.setText("");
+				textField_5.setText("");
 			}
 		});
-		btnNewButton_1.setBounds(643, 227, 85, 21);
+		btnNewButton_1.setBounds(643, 265, 85, 21);
 		contentPane.add(btnNewButton_1);
 		
 		JLabel lblCategory = new JLabel("Category");
-		lblCategory.setBounds(10, 193, 100, 24);
+		lblCategory.setForeground(new Color(255, 255, 255));
+		lblCategory.setBounds(10, 231, 100, 24);
 		contentPane.add(lblCategory);
 		
 		textField_5 = new JTextField();
+		textField_5.setForeground(new Color(255, 255, 255));
 		textField_5.setColumns(10);
-		textField_5.setBounds(74, 198, 174, 19);
+		textField_5.setBounds(74, 236, 174, 19);
 		contentPane.add(textField_5);
+		
+		textField_6 = new JTextField();
+		textField_6.setBounds(571, 32, 119, 19);
+		contentPane.add(textField_6);
+		textField_6.setColumns(10);
+		
+		JButton btnNewButton_2 = new JButton("search");
+		btnNewButton_2.setBounds(700, 30, 85, 21);
+		contentPane.add(btnNewButton_2);
+		
+		JLabel lblNewLabel_1 = new JLabel("Search for");
+		lblNewLabel_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1.setBounds(476, 29, 85, 24);
+		contentPane.add(lblNewLabel_1);
 	}
-
 }

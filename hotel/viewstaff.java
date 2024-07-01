@@ -3,6 +3,7 @@ package hotel;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
@@ -14,16 +15,18 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class viewstaff extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTable table;
-	private JButton btnNewButton;
 
 	/**
 	 * Launch the application.
@@ -46,30 +49,20 @@ public class viewstaff extends JFrame {
 	 */
 	public viewstaff() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 777, 361);
+		setBounds(100, 100, 777, 409);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(64, 0, 64));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(29, 25, 724, 241);
+		scrollPane.setBounds(29, 68, 724, 241);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
 		scrollPane.setViewportView(table);
-		
-		btnNewButton = new JButton("Back");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				ReceptionDash r = new ReceptionDash();
-				r.show();
-				viewstaff.this.setVisible(false);
-			}
-		});
-		btnNewButton.setBounds(668, 276, 85, 21);
-		contentPane.add(btnNewButton);
 		try {
 		connection con = new connection();
 		
@@ -102,5 +95,18 @@ public class viewstaff extends JFrame {
 		}catch(SQLException ent) {
 			ent.printStackTrace();
 		}
+		
+		JLabel lblNewLabel_8 = new JLabel("");
+		lblNewLabel_8.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ReceptionDash r = new ReceptionDash();
+				r.show();
+				viewstaff.this.setVisible(false);
+			}
+		});
+		lblNewLabel_8.setIcon(new ImageIcon("C:\\Users\\bhade\\Downloads\\undo.png"));
+		lblNewLabel_8.setBounds(10, 10, 58, 51);
+		contentPane.add(lblNewLabel_8);
 	}
 }

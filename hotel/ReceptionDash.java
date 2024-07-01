@@ -1,12 +1,17 @@
 package hotel;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
 
 public class ReceptionDash extends JFrame {
@@ -50,7 +55,7 @@ public class ReceptionDash extends JFrame {
 				ReceptionDash.this.setVisible(false);
 			}
 		});
-		btnNewButton.setBounds(71, 25, 103, 35);
+		btnNewButton.setBounds(99, 53, 103, 35);
 		contentPane.add(btnNewButton);
 		
 		JButton btnUser = new JButton("User");
@@ -65,19 +70,27 @@ public class ReceptionDash extends JFrame {
 				}
 			}
 		});
-		btnUser.setBounds(276, 25, 103, 35);
+		btnUser.setBounds(276, 53, 103, 35);
 		contentPane.add(btnUser);
 		
-		JButton btnNewButton_1 = new JButton("Back");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				MainDash m = new MainDash();
-				m.show();
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Dash d = new Dash();
+				d.show();
 				ReceptionDash.this.setVisible(false);
 			}
 		});
-		btnNewButton_1.setBounds(384, 122, 85, 21);
-		contentPane.add(btnNewButton_1);
+		lblNewLabel_1.setBackground(new Color(255, 255, 255));
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\bhade\\Downloads\\undo.png"));
+		lblNewLabel_1.setBounds(0, 10, 48, 47);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\bhade\\Downloads\\dash.jpg"));
+		lblNewLabel.setBounds(0, 0, 573, 252);
+		contentPane.add(lblNewLabel);
 	}
 
 }

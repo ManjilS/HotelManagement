@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.sql.PreparedStatement;
@@ -23,6 +24,8 @@ import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Color;
+import java.awt.Font;
 
 public class room extends JFrame {
 
@@ -55,7 +58,7 @@ public class room extends JFrame {
 	 */
 	public room() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 772, 281);
+		setBounds(100, 100, 772, 354);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -63,34 +66,42 @@ public class room extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Room No");
-		lblNewLabel.setBounds(10, 10, 105, 25);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		lblNewLabel.setBounds(10, 72, 105, 25);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblStatus = new JLabel("Status");
-		lblStatus.setBounds(10, 48, 105, 25);
+		lblStatus.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblStatus.setForeground(new Color(255, 255, 255));
+		lblStatus.setBounds(10, 110, 105, 25);
 		contentPane.add(lblStatus);
 		
 		JLabel lblCategory = new JLabel("Category");
-		lblCategory.setBounds(10, 83, 105, 25);
+		lblCategory.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblCategory.setForeground(new Color(255, 255, 255));
+		lblCategory.setBounds(10, 145, 105, 25);
 		contentPane.add(lblCategory);
 		
 		JLabel lblRent = new JLabel("Rent");
-		lblRent.setBounds(10, 118, 105, 25);
+		lblRent.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblRent.setForeground(new Color(255, 255, 255));
+		lblRent.setBounds(10, 180, 105, 25);
 		contentPane.add(lblRent);
 		
 		textField = new JTextField();
-		textField.setBounds(127, 13, 180, 19);
+		textField.setBounds(127, 75, 180, 19);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
-		textField_1.setBounds(127, 51, 180, 19);
+		textField_1.setBounds(127, 113, 180, 19);
 		contentPane.add(textField_1);
 		
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
-		textField_2.setBounds(127, 86, 180, 19);
+		textField_2.setBounds(127, 148, 180, 19);
 		contentPane.add(textField_2);
 		
 		JButton btnNewButton = new JButton("Add");
@@ -121,7 +132,7 @@ public class room extends JFrame {
 			}
 		}
 	});
-		btnNewButton.setBounds(10, 172, 85, 21);
+		btnNewButton.setBounds(10, 234, 85, 21);
 		contentPane.add(btnNewButton);
 		
 		JButton btnEdit = new JButton("Edit");
@@ -181,7 +192,7 @@ public class room extends JFrame {
 				}
 			}
 		});
-		btnEdit.setBounds(136, 172, 85, 21);
+		btnEdit.setBounds(136, 234, 85, 21);
 		contentPane.add(btnEdit);
 		
 		JButton btnDelete = new JButton("Delete");
@@ -219,7 +230,7 @@ public class room extends JFrame {
 				}
 			}
 		});
-		btnDelete.setBounds(272, 172, 85, 21);
+		btnDelete.setBounds(302, 234, 85, 21);
 		contentPane.add(btnDelete);
 		
 		JButton btnView = new JButton("View");
@@ -257,16 +268,16 @@ public class room extends JFrame {
 					}
 			}
 		});
-		btnView.setBounds(396, 172, 85, 21);
+		btnView.setBounds(474, 234, 85, 21);
 		contentPane.add(btnView);
 		
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
-		textField_3.setBounds(127, 121, 180, 19);
+		textField_3.setBounds(127, 183, 180, 19);
 		contentPane.add(textField_3);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(341, 15, 407, 142);
+		scrollPane.setBounds(341, 77, 407, 142);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -294,16 +305,18 @@ public class room extends JFrame {
 		});
 		scrollPane.setViewportView(table);
 		
-		JButton btnBack = new JButton("Back");
-		btnBack.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		JLabel lblNewLabel_8 = new JLabel("");
+		lblNewLabel_8.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
 				Home h = new Home();
 				h.show();
 				room.this.setVisible(false);
 			}
 		});
-		btnBack.setBounds(528, 172, 85, 21);
-		contentPane.add(btnBack);
+		lblNewLabel_8.setIcon(new ImageIcon("C:\\Users\\bhade\\Downloads\\undo.png"));
+		lblNewLabel_8.setBounds(10, 10, 58, 51);
+		contentPane.add(lblNewLabel_8);
 		
 		JButton btnNewButton_1 = new JButton("Clear");
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -315,7 +328,12 @@ public class room extends JFrame {
 				
 			}
 		});
-		btnNewButton_1.setBounds(663, 172, 85, 21);
+		btnNewButton_1.setBounds(663, 234, 85, 21);
 		contentPane.add(btnNewButton_1);
+		
+		JLabel room = new JLabel("New label");
+		room.setIcon(new ImageIcon("C:\\Users\\bhade\\Downloads\\room.jpg"));
+		room.setBounds(0, 0, 862, 418);
+		contentPane.add(room);
 	}
 }

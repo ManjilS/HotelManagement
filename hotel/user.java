@@ -10,11 +10,14 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.UIManager;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JTable;
 import java.awt.event.ActionListener;
 import java.sql.PreparedStatement;
@@ -28,6 +31,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Color;
 
 public class user extends JFrame {
 
@@ -66,43 +70,60 @@ public class user extends JFrame {
 	 */
 	public user() throws SQLException {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1231, 447);
+		setBounds(100, 100, 1231, 466);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(0, 0, 160));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Name");
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
 		
-		lblNewLabel.setBounds(23, 27, 93, 28);
+		lblNewLabel.setBounds(20, 61, 93, 28);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("User_Id");
-		lblNewLabel_1.setBounds(23, 65, 93, 28);
+		lblNewLabel_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel_1.setBounds(20, 99, 93, 28);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Age");
-		lblNewLabel_2.setBounds(23, 103, 93, 28);
+		lblNewLabel_2.setForeground(new Color(255, 255, 255));
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel_2.setBounds(20, 137, 93, 28);
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Address");
-		lblNewLabel_3.setBounds(23, 145, 93, 28);
+		lblNewLabel_3.setForeground(new Color(255, 255, 255));
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel_3.setBounds(20, 179, 93, 28);
 		contentPane.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("Status");
-		lblNewLabel_4.setBounds(23, 183, 93, 28);
+		lblNewLabel_4.setForeground(new Color(255, 255, 255));
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel_4.setBounds(20, 217, 93, 28);
 		contentPane.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("Citizenship_no");
-		lblNewLabel_5.setBounds(23, 221, 93, 28);
+		lblNewLabel_5.setForeground(new Color(255, 255, 255));
+		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel_5.setBounds(20, 255, 93, 28);
 		contentPane.add(lblNewLabel_5);
 		
 		JLabel lblNewLabel_6 = new JLabel("Room_Category");
-		lblNewLabel_6.setBounds(23, 259, 93, 28);
+		lblNewLabel_6.setForeground(new Color(255, 255, 255));
+		lblNewLabel_6.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel_6.setBounds(20, 293, 93, 28);
 		contentPane.add(lblNewLabel_6);
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.setForeground(new Color(255, 255, 255));
+		comboBox.setFont(new Font("Tahoma", Font.BOLD, 11));
 		
 	       connection con = new connection();
 	        Statement s = connection.con.createStatement();
@@ -116,7 +137,7 @@ public class user extends JFrame {
 	            }
 	        }
 	   
-		comboBox.setBounds(126, 259, 195, 21);
+		comboBox.setBounds(123, 293, 195, 21);
 		contentPane.add(comboBox);
 		
 		
@@ -134,7 +155,7 @@ public class user extends JFrame {
 					String room_cat=comboBox.getSelectedItem().toString();
 					String check_in_date =textField_6.getText();
 					String check_out_date=textField_7.getText();
-					String sql = "INSERT INTO user (name,user_id,age,address,status,citizenship_no,room_category,check_in_date,check_out_date) VALUES (?,?,?, ?, ?, ?, ?,?,?)";
+					String sql = "INSERT INTO user (name,user_id,age,address,status,citizenship_no,room_category,check_in_date) VALUES (?,?,?, ?, ?, ?, ?,?)";
 					PreparedStatement s = connection.con.prepareStatement(sql);
 					s.setString(1, name);
 					s.setInt(2, id);
@@ -144,7 +165,7 @@ public class user extends JFrame {
 					s.setInt(6, ctz_no);
 					s.setString(7, room_cat);
 					s.setString(8, check_in_date);
-					s.setString(9, check_out_date);
+					
 					int rowsInserted = s.executeUpdate();
 				    if (rowsInserted > 0) {
 				    	JOptionPane.showMessageDialog(btnNewButton, "Row inserted");
@@ -157,7 +178,7 @@ public class user extends JFrame {
 		});
 			
 		
-		btnNewButton.setBounds(59, 379, 85, 21);
+		btnNewButton.setBounds(86, 400, 85, 21);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Update");
@@ -231,7 +252,7 @@ public class user extends JFrame {
 
 			
 		});
-		btnNewButton_1.setBounds(187, 379, 85, 21);
+		btnNewButton_1.setBounds(214, 400, 85, 21);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Remove");
@@ -273,53 +294,56 @@ public class user extends JFrame {
 				}
 			}
 		});
-		btnNewButton_2.setBounds(311, 379, 85, 21);
+		btnNewButton_2.setBounds(338, 400, 85, 21);
 		contentPane.add(btnNewButton_2);
 		
-		JButton btnNewButton_3 = new JButton("Back");
-		btnNewButton_3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Home h = new Home();
-				h.show();
-				user.this.setVisible(false);
-			}
-		});
-		btnNewButton_3.setBounds(536, 379, 85, 21);
-		contentPane.add(btnNewButton_3);
+		
 		
 		textField = new JTextField();
-		textField.setBounds(126, 27, 195, 28);
+		textField.setForeground(new Color(255, 255, 255));
+		textField.setFont(new Font("Tahoma", Font.BOLD, 11));
+		textField.setBounds(123, 67, 195, 28);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
+		textField_1.setForeground(new Color(255, 255, 255));
+		textField_1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		textField_1.setColumns(10);
-		textField_1.setBounds(126, 70, 195, 28);
+		textField_1.setBounds(123, 104, 195, 28);
 		contentPane.add(textField_1);
 		
 		textField_2 = new JTextField();
+		textField_2.setForeground(new Color(255, 255, 255));
+		textField_2.setFont(new Font("Tahoma", Font.BOLD, 11));
 		textField_2.setColumns(10);
-		textField_2.setBounds(126, 108, 195, 28);
+		textField_2.setBounds(123, 142, 195, 28);
 		contentPane.add(textField_2);
 		
 		textField_3 = new JTextField();
+		textField_3.setForeground(new Color(255, 255, 255));
+		textField_3.setFont(new Font("Tahoma", Font.BOLD, 11));
 		textField_3.setColumns(10);
-		textField_3.setBounds(126, 150, 195, 28);
+		textField_3.setBounds(123, 184, 195, 28);
 		contentPane.add(textField_3);
 		
 		textField_4 = new JTextField();
+		textField_4.setForeground(new Color(255, 255, 255));
+		textField_4.setFont(new Font("Tahoma", Font.BOLD, 11));
 		textField_4.setColumns(10);
-		textField_4.setBounds(126, 188, 195, 28);
+		textField_4.setBounds(123, 222, 195, 28);
 		contentPane.add(textField_4);
 		
 		textField_5 = new JTextField();
+		textField_5.setForeground(new Color(255, 255, 255));
+		textField_5.setFont(new Font("Tahoma", Font.BOLD, 11));
 		textField_5.setColumns(10);
-		textField_5.setBounds(126, 226, 195, 28);
+		textField_5.setBounds(123, 260, 195, 28);
 		contentPane.add(textField_5);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		
-		scrollPane.setBounds(372, 75, 798, 248);
+		scrollPane.setBounds(372, 75, 798, 303);
 		contentPane.add(scrollPane);
 		
 		
@@ -397,7 +421,7 @@ public class user extends JFrame {
 					}
 			}
 		});
-		btnNewButton_4.setBounds(422, 379, 85, 21);
+		btnNewButton_4.setBounds(449, 400, 85, 21);
 		contentPane.add(btnNewButton_4);
 		
 		JButton btnNewButton_5 = new JButton("Bill");
@@ -414,7 +438,7 @@ public class user extends JFrame {
 					}
 			}
 		});
-		btnNewButton_5.setBounds(652, 379, 85, 21);
+		btnNewButton_5.setBounds(597, 400, 85, 21);
 		contentPane.add(btnNewButton_5);
 		
 		JButton btnNewButton_6 = new JButton("Clear");
@@ -429,25 +453,33 @@ public class user extends JFrame {
 				
 			}
 		});
-		btnNewButton_6.setBounds(772, 379, 85, 21);
+		btnNewButton_6.setBounds(755, 400, 85, 21);
 		contentPane.add(btnNewButton_6);
 		
 		JLabel lblNewLabel_6_1 = new JLabel("Check in date");
-		lblNewLabel_6_1.setBounds(23, 290, 93, 28);
+		lblNewLabel_6_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_6_1.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel_6_1.setBounds(20, 324, 93, 28);
 		contentPane.add(lblNewLabel_6_1);
 		
 		textField_6 = new JTextField();
+		textField_6.setForeground(new Color(255, 255, 255));
+		textField_6.setFont(new Font("Tahoma", Font.BOLD, 11));
 		textField_6.setColumns(10);
-		textField_6.setBounds(126, 290, 195, 28);
+		textField_6.setBounds(123, 324, 195, 28);
 		contentPane.add(textField_6);
 		
 		JLabel lblNewLabel_6_1_1 = new JLabel("Check out date");
-		lblNewLabel_6_1_1.setBounds(23, 328, 93, 28);
+		lblNewLabel_6_1_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_6_1_1.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel_6_1_1.setBounds(20, 362, 93, 28);
 		contentPane.add(lblNewLabel_6_1_1);
 		
 		textField_7 = new JTextField();
+		textField_7.setForeground(new Color(255, 255, 255));
+		textField_7.setFont(new Font("Tahoma", Font.BOLD, 11));
 		textField_7.setColumns(10);
-		textField_7.setBounds(126, 328, 195, 28);
+		textField_7.setBounds(123, 362, 195, 28);
 		contentPane.add(textField_7);
 		
 		textField_8 = new JTextField();
@@ -498,6 +530,7 @@ public class user extends JFrame {
 		contentPane.add(btnNewButton_7);
 		
 		JLabel lblNewLabel_7 = new JLabel("Search for");
+		lblNewLabel_7.setForeground(new Color(255, 255, 255));
 		lblNewLabel_7.setBounds(794, 27, 102, 21);
 		contentPane.add(lblNewLabel_7);
 		
@@ -540,7 +573,21 @@ public class user extends JFrame {
 					}
 			}
 		});
-		btnNewButton_8.setBounds(892, 379, 85, 21);
+		btnNewButton_8.setBounds(893, 400, 85, 21);
 		contentPane.add(btnNewButton_8);
+		
+		JLabel lblNewLabel_8 = new JLabel("");
+		lblNewLabel_8.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Home h = new Home();
+				h.show();
+				user.this.setVisible(false);
+			}
+		});
+		lblNewLabel_8.setIcon(new ImageIcon("C:\\Users\\bhade\\Downloads\\undo.png"));
+		lblNewLabel_8.setBounds(10, 10, 58, 51);
+		contentPane.add(lblNewLabel_8);
+		
 	}
 }
